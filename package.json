@@ -4,6 +4,7 @@
   "description": "Lyvly standard ESLint configs",
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint --ext .js .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,22 @@
   "bugs": {
     "url": "https://github.com/lyvly-living/eslint-config-lyvly/issues"
   },
-  "homepage": "https://github.com/lyvly-living/eslint-config-lyvly#readme"
+  "homepage": "https://github.com/lyvly-living/eslint-config-lyvly#readme",
+  "dependencies": {
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0 || ^6.7.2",
+    "eslint-plugin-import": "^2.20.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0 || ^6.7.2",
+    "eslint-find-rules": "^3.4.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
 }
