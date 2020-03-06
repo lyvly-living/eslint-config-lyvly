@@ -1,6 +1,6 @@
 {
   "name": "@lyvly/eslint-config-lyvly",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Lyvly standard ESLint configs",
   "main": "src/index.js",
   "files": [
