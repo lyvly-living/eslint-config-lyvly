@@ -2,9 +2,10 @@
   "name": "@lyvly/eslint-config-lyvly",
   "version": "1.1.0",
   "description": "Lyvly standard ESLint configs",
-  "main": "src/index.js",
+  "main": "index.js",
   "files": [
-    "src/*"
+    "rules/*",
+    "*.js"
   ],
   "scripts": {
     "------ LINTING ------": "",
