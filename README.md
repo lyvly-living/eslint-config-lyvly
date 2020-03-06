@@ -9,7 +9,7 @@
 ### 1. Exporting functions
 
 - Use only named exports.
-
+```
     // Preferred 🚀
     // ------------
     export const myFunction = () => {}
@@ -22,7 +22,7 @@
     // Avoid 👎
     // --------
     export default () => {}
-
+```
 - Relatedly: do not use index files. Always import directly from the relevant file.
 
 **Why?**
@@ -30,7 +30,7 @@
 - This ensures consistent naming across the codebase.
     - In comparison, if you use a default export then you can rename it on import.
 - Also: it helps us write self-contained tests (see rule 4). You can use `jest.mock` on the entire module, and then modify its implementation on a test-by-test basis:
-
+```
     // Preferred 🚀
     // ------------
     import { myFunction } from './myFunction'
@@ -46,12 +46,12 @@
     		myFunction.mockReturnValue('bar')
     	})
     })
-
+```
 ### 2. Writing related functions
 
 - If you are writing several related functions (e.g. crud operations for an entity), put them in the same file.
 - When you import those functions, use wildcard syntax:
-
+```
     // Preferred 🚀
     // ------------
     import * as memberDomain from './memberDomain'
@@ -65,9 +65,9 @@
     
     create()
     update()
-
+```
 - When naming functions, don't repeat yourself:
-
+```
     // Preferred 🚀
     // ------------
     memberDomain.create()
@@ -76,7 +76,7 @@
     // Avoid 👎
     memberDomain.createMember()
     memberDomain.updateMember()
-
+```
 - If your test file is getting large, don't be afraid to have several smaller test files for one module.
 
 **Why?**
@@ -88,7 +88,7 @@
 - If you are writing an individual helper function which isn't *obviously* related to other functions (e.g. `parseResponse` or `authenticate`), put it in its own file.
 - However, these should still be exported using a named export, as per rule 1.
 - Import these directly, instead of using wildcard syntax which is unnecessarily clunky:
-
+```
     // Preferred 🚀
     // ------------
     import { parseResponse } from './parseResponse'
@@ -98,14 +98,14 @@
     // --------
     import * as parseResponse from './parseResponse'
     parseResponse.parseResponse()
-
+```
 - Keep these files as close as possible to the things that use them. This means we can easily move/delete the things that use them, without having to move/copy helper functions from lots of different places.
     - Relatedly: do not create a global `utils` folder except for truly global things.
 
 ### 4. Tests should be self-contained
 
 - Each test should contain all of the code required to understand that test.
-
+```
     // Preferred 🚀
     // ------------
     it('finds an existing member', () => {
@@ -141,7 +141,7 @@
     	const member = memberDomain.update({ firstName: 'Homer' }, { firstName: 'Marge' })
     	expect(member).toEqual({ firstName: 'Marge', lastName: 'Simpson' })
     })
-
+```
 - Additionally, tests should be independent. So you should make sure that each test is operating on a different entity in the database, or that you're wiping the data between each test.
 
 **Why?**
@@ -172,7 +172,7 @@ The rules are the same as for the backend, except for the following exceptions:
 
 - This is common practice for React components.
 - It also helps when testing components wrapped by higher-order components. If you use a default export for the wrapped component, and a named export for the base component, you can use the latter in your tests:
-
+```
     // If your React component looks like this:
     export const Title = () => {
     	return (
@@ -194,13 +194,13 @@ The rules are the same as for the backend, except for the following exceptions:
     		expect(Title).toMatchSnapshot()
     	})
     })
-
+```
 ### 2. Use index files for React components
 
 **Why?**
 
 - Unlike the backend, there are several files associated with a component. Using an index file means that we can use a neater import whenever we use that component:
-
+```
     // For a file structure that looks like this:
     // Title/
     // -- Title.js
@@ -218,3 +218,4 @@ The rules are the same as for the backend, except for the following exceptions:
     
     // Rather than like this:
     import Title from '@components/Title/Title'
+```
