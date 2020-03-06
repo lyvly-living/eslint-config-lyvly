@@ -3,19 +3,16 @@ module.exports = {
 
   extends: [
     "eslint-config-airbnb",
+    "eslint-config-airbnb/hooks",
     "eslint-config-prettier",
     "./rules/lyvly",
-    "./rules/prettier"
+    "./rules/prettier",
+    "./rules/react"
   ].map(require.resolve),
 
   plugins: ["jest"],
 
   env: {
     "jest/globals": true
-  },
-
-  rules: {
-    // In React world, we allow default exports.
-    "import/no-default-export": "off"
   }
 };
