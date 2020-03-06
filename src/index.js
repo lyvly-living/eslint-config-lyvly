@@ -5,5 +5,9 @@ module.exports = {
     "eslint-config-prettier",
     "./rules/lyvly",
     "./rules/prettier"
-  ].map(require.resolve)
+  ].map(require.resolve),
+  plugins: ["jest"],
+  env: {
+    "jest/globals": true
+  }
 };

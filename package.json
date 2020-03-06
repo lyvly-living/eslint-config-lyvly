@@ -3,9 +3,28 @@
   "version": "0.0.1",
   "description": "Lyvly standard ESLint configs",
   "main": "src/index.js",
+  "files": [
+    "src/*"
+  ],
   "scripts": {
+    "------ LINTING ------": "",
     "lint": "eslint --ext .js .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "------ TEST ------": "",
+    "test": "jest",
+    "------ BUILD/RELEASE ------": "",
+    "release:major": "npm version major && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:patch": "npm version patch && npm publish",
+    "------ NPM Scripts ------": "",
+    "preversion": "yarn lint && yarn test",
+    "postversion": "git push --follow-tags",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint && yarn test",
+      "pre-commit": "yarn lint"
+    }
   },
   "repository": {
     "type": "git",
@@ -30,8 +49,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
     "eslint": "^5.16.0 || ^6.7.2",
     "eslint-find-rules": "^3.4.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0"
   }
 }
