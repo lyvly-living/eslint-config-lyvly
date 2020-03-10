@@ -12,6 +12,9 @@ module.exports = {
     "no-new": 0,
 
     // Allow using e.g. _id variable names
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+
+    // Reduce the amount of cyclomatic complexity in functions
+    complexity: ["warn", 8]
   }
 };
