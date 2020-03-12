@@ -9,6 +9,9 @@ module.exports = {
     "no-param-reassign": [2, { props: false }],
 
     // No new classes without assigning them to a variable.
-    "no-new": 0
+    "no-new": 0,
+
+    // Allow using e.g. _id variable names
+    "no-underscore-dangle": "off"
   }
 };
