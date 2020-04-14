@@ -2,6 +2,6 @@
 
 describe("index", () => {
   it("parses the entry point", () => {
-    expect(() => require(".")).not.toThrow;
+    expect(() => require(".")).not.toThrow();
   });
 });

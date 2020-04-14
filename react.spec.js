@@ -2,6 +2,6 @@
 
 describe("react", () => {
   it("parses the entry point", () => {
-    expect(() => require("./react")).not.toThrow;
+    expect(() => require("./react")).not.toThrow();
   });
 });
