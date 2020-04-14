@@ -4,7 +4,6 @@ module.exports = {
   extends: [
     "eslint-config-airbnb",
     "eslint-config-airbnb/hooks",
-    "eslint-config-prettier",
     "./rules/jest",
     "./rules/lyvly",
     "./rules/prettier",
