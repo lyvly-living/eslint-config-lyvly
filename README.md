@@ -1,5 +1,32 @@
 # Lyvly Javascript Style Guide
 
+# How to install
+
+```
+# install the package
+yarn add -D @lyvly/eslint-config
+
+# install peer deps
+yarn add -D babel-eslint@10.1 eslint-plugin-import@2.2 eslint-plugin-jest@23.8
+
+# if you're using react
+yarn add -D eslint-plugin-jsx-a11y@6.2 eslint-plugin-react@7.18 eslint-plugin-react-hooks@2
+```
+
+```
+# in your eslint config
+module.exports = {
+  extends: ['@lyvly'],
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
+  },
+};
+```
+
+# Rules
+
 ### Fork of https://github.com/airbnb/javascript
 
 *An approach to JavaScript that mostly follows AirBnB's guidelines with some minor tweaks*
